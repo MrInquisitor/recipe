@@ -3,32 +3,69 @@
 h1,h2,h3,nav a,.saveMenu, nav li,nav p, footer {
     font-family: 'Bebas Neue', cursive; 
 }
-
+p, .directions li, input, dt {
+    font-family: 'Montserrat', sans-serif; 
+}
+dt {
+    font-weight: bold;
+}
 /*End of Text Styles*/
 html {
     background-color: rgba(122,191,191,.5);
+    position: relative;
+    
 }
 .mainNav {
     background-color: #FFFFFF;
+    display: grid;
+    grid-template-columns: auto;
 }
-body{
+body {
     background-color: #F2F2F2;
-    max-width: 414px;
+    width: 414px;
     margin: 0 auto;
-    position: relative;
 }
 .otherRecipes{
    background-color: #7ABFBF; 
+   display: inline-block;
+   
 }
 footer{
     background-color: #FFFFFF;
 }
-#homeButton, #searchBar {
+#homeButton, #searchButton {
     background-color: #EB5428;
 }
 nav img {/*Hiding imgs for small screen size*/
     display: none;
 }
+li a{
+    text-decoration: none;
+    color: #EB5428 ;  
+}
+h1,h2 {
+    text-align: center;
+}
+body p{
+    margin: 5px 5px 0px;
+}
+.directions li {
+    padding: 10px;
+}
+.recipes h2 {
+    text-align: left;
+}
+.directions p {
+    padding: 10px;
+}
+.recipes img {
+    width: 25%;
+    margin: 20px;
+}
+.forPad p {
+    margin: 25px 0px;
+}
+
 /*code for hamburger menu*/
 nav ul {
     margin: 0;
@@ -45,7 +82,7 @@ nav li a {
     text-decoration: none;
     color: #EB5428 ;
 }
-nav a:hover {
+nav a:hover:not(.signIn li a) {
     background-color: #EB5428;
     color: #ffffff;
     transition: background-color .5s ease-in;
@@ -56,9 +93,9 @@ nav label {
     padding: 28px 20px;
     position: relative;
     user-select: none;
+    
 }
 nav label span {
-    background-color: #ffffff;
     display: block;
     height: 2px;
     position: relative;
@@ -66,7 +103,6 @@ nav label span {
     width: 18px;
 }
 nav label span:before, label span:after {
-    background: #ffffff;
     content: '';
     display: block;
     height: 100%;
@@ -74,26 +110,325 @@ nav label span:before, label span:after {
     transition: all .2s ease-out;
     width: 100%;
 }
-nav label span:before {
-    top: 5px;
-}
-nav label span:after {
-    top: -5px;
-}
 nav input {
     display: none;
 }
 nav input:checked ~ ul {
     max-height: 500px;
 }
-nav input:checked ~ label span {
-    background: transparent;
-}
+
 /*End of hamburger menu code*/
 /* moving nav menu and svgs up to top of screen*/
+.mainNav { 
+    position: absolute;
+    top:0;
+    width: 414px;
+    z-index: 1;
+}
+.mainNav label {
+    position: absolute;
+    top: 0;
+}
+#homeButton {
+    position: absolute;
+    top: 0;
+    left: 15%;
+    width:65%;
+    height: 70px;
+}
+.signIn {
+    position: absolute;
+    top: 0;
+    right: 0; 
+    margin: 0; 
+}
+.signIn:hover,#signIn:hover{
+    background-color: #EB5428;
+    stroke: #ffffff;
+    transition: background-color .5s ease-in;
+}
+.hamburger {
+    margin: 2px 5px;  
+}
+nav p {
+    margin: 0;
+    transform: translateX(1%);
+}
+/*end of main nav/"header" code*/
+/* small Screen Styles */
 
-/*end of nav code*/
+/*placing and styling SearchBar */
+.searchBar{
+    position: absolute;
+    top: 80px;
+    right: 314px;
+    width: 200px;
+    z-index: 0;   
+}
+#searchButton{
+    transform: translate(860%, -99%);
+    height: 31px;
+    width: 30px;
+}
+.recipeSearch {
+    width: 125%;
+    height: 25px;
+    border:solid 2px #EB5428;
+}
+/*SearchBar code end*/
+.header {
+    height: 150px;
+}
+h1, .saveMenu {
+    transform: translateY(125%);
+}
+h1 {
+    transform: translateY(310%);
+}
+.saveMenu, .socialLinks {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-decoration: none;
+    margin: 0;
+    list-style: none;
+    color:#EB5428
+}
+.saveMenu a, .socialLinks a{
+   text-align: center;
+}
+.saveMenu a:hover, .socialLinks a:hover {
+    background-color: #EB5428;
+    color: #ffffff;
+    transition: background-color .5s ease-in;
+}
+.saveMenu {
+    transform: translateY(5%);
+}
+.directions {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.forGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.recipes {
+    display: flex;
+    flex-wrap: wrap;
+}
+.tacoCheesington {
+    width: 25%;
+    transform: translateY(-40%);
+}
 .tacos {
     width: 100%;
     height: 20%;
+}
+.recipes:hover {
+    background-color: #FFAE42;
+    transition: background-color .2s ease-in;
+}
+footer {
+    max-height: 300px;
+    text-align: center;   
+}
+footer p{
+    font-weight: bold;
+    transform: translateY(300%);
+}
+
+/* Syles for Medium Screen size */
+@media (min-width: 768px) {
+    body {
+        width: 768px;
+    }
+    h1 {
+        transform: translateY(450%);
+    }
+    #searchBar {
+        z-index:2;
+    }
+    .searchBar{
+        position: absolute;
+        width: 200px;
+        top: 10px;
+        right: 200px;
+    }
+    .hamburger {
+        display: none;
+    }
+    #homeButton {
+        left: 0px;
+        height: 100%;
+        width: 75px;
+    }
+    .mainNav,nav,nav ul {
+        width: 768px;
+        height: 125px;
+        z-index: 0;
+    }
+    nav ul {
+        max-height: 100px;
+        
+    }
+    nav img {
+     visibility: visible;
+    }
+    nav li {
+        display: inline-block; 
+        transform: translate(70%, 104%);
+    }
+    .signIn{
+        margin-right: 10px;
+    }
+    .saveMenu {
+        transform: translateY(100%);
+        background-color: rgba(191,191,191,.5);
+    }
+    .forCenter {
+        text-align: center;
+    }
+    .otherRecipes img {
+        margin: 10px;
+    }
+    .forGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 10px;
+    } 
+    .directGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }   
+    .tacoCheesington{
+       transform: translate(2%,-20%);
+    }
+    .textMove {
+        transform: translateY(200%);
+    }
+    footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: 450px;
+    }
+    .cheesington {
+        grid-column: 1;
+        grid-row: 1/2;
+    }
+    .socialLinks {
+        grid-column: 2;
+    }
+    footer p {
+        padding: 12px;
+    }
+
+}
+/* Styles for Large Screen Size */
+@media  (min-width: 1280px){
+    body {
+        position: relative;
+        width: 1280px;
+    }
+    .mainNav {
+        width: 1280px;
+    }
+    nav ul {
+        width: 1280px;
+    }
+    .header {
+        height: 300px;
+    }
+    h1 {
+        transform: translateY(650%);
+    }
+    .searchBar{
+       transform: translate(-60%, 235%);
+    }
+    #searchButton{
+        transform: translate(790%, -99%);
+    }
+    .forGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        padding: 10px;
+    } 
+    strong::after {
+        content: "\a";
+        white-space: pre;
+    }
+    .saveMenu {
+        display: grid;
+        grid-template-columns: 1fr;
+        background-color: #FFFFFF;
+        height: 600px;
+        transform: translateY(0.05%);   
+    }
+    .tacos {
+        height: 600px;
+    }
+    .tacoGrid {
+        display: grid;
+        grid-template-columns: 100px 1fr 1fr;
+        
+    }
+    .tacoP{
+        padding:2px 10px 25px;
+    }
+    .searchBar{
+        position: absolute;
+        width: 200px;
+        top: 10px;
+        right: 450px;
+    }
+    #searchButton{
+        transform: translate(790%, -99%);
+    }
+    .otherRecipes img {
+        width: 100%;
+    }
+    .forCenter {
+        width: 100%;
+        background-color: #000000;
+        color: #7ABFBF;
+    }
+    .directGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .detailGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }  
+    footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: 250px;
+    }
+    .cheesington {
+        grid-column: 1;
+        grid-row: 1/2;
+    }
+    .socialLinks {
+        grid-column: 2;
+    }
+}
+@media print {
+    *{
+        padding:0;
+    }
+    body {
+        font-family: 'Times New Roman', Times, serif;
+        background-color: #FFFFFF;
+        color:#000000;
+        padding:0;
+    }
+    .mainNav, nav, .searchBar, .saveMenu, .socialLinks, .otherRecipes{
+        display: none;
+    }
+    img {
+        filter: grayscale(100%);
+    }
+    @page {
+        margin: 0.5in;
+    }
 }
